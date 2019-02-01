@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Player : Entity
 {
+
+    private void Start()
+    {
+        Health = 6;
+        Strength = 1;
+        Speed = 20;
+    }
+
     public override void Move()
     {
         // TODO code
