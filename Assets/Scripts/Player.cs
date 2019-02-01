@@ -16,6 +16,12 @@ public class Player : Entity
 
     public override void ChangeHealth(int amount)
     {
-        // TODO code
+        Health += amount;
+
+        if (Health == 0)
+        {
+            // TODO give feedback to signal game over before deleting the player
+            Destroy(gameObject);
+        }
     }
 }
