@@ -17,13 +17,12 @@ public class HeartSystem : MonoBehaviour
     private void Start()
     {
         player = gameObject.GetComponent<Player>();
+        Player.healthChangedEvent += OnPlayerHealthChanged;
 
         healthPerHeart = heartSprites.Length - 1;
         maxAttainableHearts = heartImages.Length;
-        playerMaxHearts = (player.Health + 1) / healthPerHeart;
 
-        SetVisibleHeartContainers();
-        UpdateHearts();
+        OnPlayerHealthChanged();
     }
 
     void SetVisibleHeartContainers()
@@ -44,6 +43,13 @@ public class HeartSystem : MonoBehaviour
         }
     }
     
+    void OnPlayerHealthChanged()
+    {
+        playerMaxHearts = (player.Health + 1) / healthPerHeart;
+        SetVisibleHeartContainers();
+        UpdateHearts();
+    }
+
     void UpdateHearts()
     {
         int playerHealth = player.Health;
@@ -51,8 +57,6 @@ public class HeartSystem : MonoBehaviour
 
         // e.g., if Player has 7 health (3.5 hearts), then last index = 3, so loop through [0, 3)
         int lastHeartIndex = (int)Mathf.Max(0, (int)(playerHealth / 2));
-
-        Debug.Log(lastHeartIndex);
 
         // If health = 7, then loop through 7/2 - 1 = 2 first hearts, then decide the last one
         for(int i = 0; i < lastHeartIndex; i++)
