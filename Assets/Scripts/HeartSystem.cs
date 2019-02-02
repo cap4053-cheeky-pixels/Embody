@@ -8,7 +8,7 @@ public class HeartSystem : MonoBehaviour
     private Player player;
     private int maxAttainableHearts;
     private int healthPerHeart;
-    private int playerMaxHearts;
+    private int maxPlayerHeartContainers;
 
     public Image[] heartImages;
     public Sprite[] heartSprites;
@@ -28,10 +28,10 @@ public class HeartSystem : MonoBehaviour
     void SetVisibleHeartContainers()
     {
         // Loop through all hearts
-        for(int i = 0; i < maxAttainableHearts; i++)
+        for (int i = 0; i < maxAttainableHearts; i++)
         {
             // Enable hearts within the current capacity
-            if(i < playerMaxHearts)
+            if(i < maxPlayerHeartContainers)
             {
                 heartImages[i].enabled = true;
             }
@@ -45,34 +45,42 @@ public class HeartSystem : MonoBehaviour
     
     void OnPlayerHealthChanged()
     {
-        playerMaxHearts = (player.Health + 1) / healthPerHeart;
+        maxPlayerHeartContainers = (player.MaxHealth + 1) / healthPerHeart;
         SetVisibleHeartContainers();
         UpdateHearts();
     }
 
     void UpdateHearts()
     {
-        int playerHealth = player.Health;
-        bool evenHealth = playerHealth % 2 == 0 && playerHealth != 0;
+        int indexOfLastNonemptyContainer = (int)Mathf.Max(0, (int)((player.Health + 1) / healthPerHeart - 1));
+        bool evenHealth = player.Health % 2 == 0 && player.Health != 0;
 
-        // e.g., if Player has 7 health (3.5 hearts), then last index = 3, so loop through [0, 3)
-        int lastHeartIndex = (int)Mathf.Max(0, (int)(playerHealth / 2));
-
-        // If health = 7, then loop through 7/2 - 1 = 2 first hearts, then decide the last one
-        for(int i = 0; i < lastHeartIndex; i++)
+        // Full red hearts
+        for (int i = 0; i < indexOfLastNonemptyContainer; i++)
         {
-            // Set all hearts up to the last one as full
             heartImages[i].sprite = heartSprites[heartSprites.Length - 1];
         }
 
-        // Then decide what the last heart should be
-        if(evenHealth)
+        // Last heart full
+        if (evenHealth)
         {
-            heartImages[lastHeartIndex].sprite = heartSprites[heartSprites.Length - 1];
+            heartImages[indexOfLastNonemptyContainer].sprite = heartSprites[heartSprites.Length - 1];
         }
+        // Last heart empty (edge case of death)
+        else if(player.Health == 0)
+        {
+            heartImages[0].sprite = heartSprites[0];
+        }
+        // Last heart half
         else
         {
-            heartImages[lastHeartIndex].sprite = heartSprites[1];
+            heartImages[indexOfLastNonemptyContainer].sprite = heartSprites[1];
+        }
+
+        // All others beyond that are empty
+        for (int i = indexOfLastNonemptyContainer + 1; i < maxPlayerHeartContainers; i++)
+        {
+            heartImages[i].sprite = heartSprites[0];
         }
     }
 }
