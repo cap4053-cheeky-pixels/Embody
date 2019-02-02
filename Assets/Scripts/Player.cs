@@ -7,7 +7,8 @@ public class Player : Entity
 
     private void Start()
     {
-        Health = 6;
+        MaxHealth = 6;
+        Health = MaxHealth;
         Strength = 1;
         Speed = 20;
     }

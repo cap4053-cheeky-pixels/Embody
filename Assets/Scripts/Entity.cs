@@ -5,6 +5,7 @@ using UnityEngine;
 abstract public class Entity : MonoBehaviour
 {
     public int Health { get; set; }
+    public int MaxHealth { get; set; }
     public int Strength { get; set; }
     public int Speed { get; set; }
     // TODO add AttackPattern or Ability property
