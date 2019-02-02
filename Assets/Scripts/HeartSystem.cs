@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class HeartSystem : MonoBehaviour
 {
     private Player player;
-    private int maxHeartAmount;
+    private int maxAttainableHearts;
     private int healthPerHeart;
-    private int numInitialHearts;
+    private int playerMaxHearts;
 
     public Image[] heartImages;
     public Sprite[] heartSprites;
@@ -19,8 +19,8 @@ public class HeartSystem : MonoBehaviour
         player = gameObject.GetComponent<Player>();
 
         healthPerHeart = heartSprites.Length - 1;
-        maxHeartAmount = heartImages.Length;
-        numInitialHearts = player.Health / healthPerHeart;
+        maxAttainableHearts = heartImages.Length;
+        playerMaxHearts = (player.Health + 1) / healthPerHeart;
 
         SetVisibleHeartContainers();
         UpdateHearts();
@@ -29,49 +29,46 @@ public class HeartSystem : MonoBehaviour
     void SetVisibleHeartContainers()
     {
         // Loop through all hearts
-        for(int i = 0; i < maxHeartAmount; i++)
+        for(int i = 0; i < maxAttainableHearts; i++)
         {
-            // Within the current heart capacity
-            if(i < numInitialHearts)
+            // Enable hearts within the current capacity
+            if(i < playerMaxHearts)
             {
                 heartImages[i].enabled = true;
             }
-            // Disable unused heart slots
+            // Disable unused heart images
             else
             {
                 heartImages[i].enabled = false;
             }
         }
     }
-
-    // TODO make this better
+    
     void UpdateHearts()
     {
-        bool empty = false;
-        int i = 0;
+        int playerHealth = player.Health;
+        bool evenHealth = playerHealth % 2 == 0 && playerHealth != 0;
 
-        foreach (Image image in heartImages)
+        // e.g., if Player has 7 health (3.5 hearts), then last index = 3, so loop through [0, 3)
+        int lastHeartIndex = (int)Mathf.Max(0, (int)(playerHealth / 2));
+
+        Debug.Log(lastHeartIndex);
+
+        // If health = 7, then loop through 7/2 - 1 = 2 first hearts, then decide the last one
+        for(int i = 0; i < lastHeartIndex; i++)
         {
-            if(empty)
-            {
-                image.sprite = heartSprites[0];
-            }
-            else
-            {
-                i++;
+            // Set all hearts up to the last one as full
+            heartImages[i].sprite = heartSprites[heartSprites.Length - 1];
+        }
 
-                if(player.Health >= i * healthPerHeart)
-                {
-                    image.sprite = heartSprites[heartSprites.Length - 1];
-                }
-                else
-                {
-                    int currentHeartHealth = (int)(healthPerHeart - (healthPerHeart * i - player.Health));
-                    int spriteIndex = currentHeartHealth / healthPerHeart;
-                    image.sprite = heartSprites[spriteIndex];
-                    empty = true;
-                }
-            }
+        // Then decide what the last heart should be
+        if(evenHealth)
+        {
+            heartImages[lastHeartIndex].sprite = heartSprites[heartSprites.Length - 1];
+        }
+        else
+        {
+            heartImages[lastHeartIndex].sprite = heartSprites[1];
         }
     }
 }
