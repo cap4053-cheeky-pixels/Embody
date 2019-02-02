@@ -13,5 +13,6 @@ abstract public class Entity : MonoBehaviour
 
     public abstract void Attack();
     public abstract void Move();
+    public abstract void ChangeMaxHealth(int amount);
     public abstract void ChangeHealth(int amount);
 }
