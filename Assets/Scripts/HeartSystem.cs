@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class HeartSystem : MonoBehaviour
 {
     private Player player;
-    private int maxHeartAmount;
+    private int maxAttainableHearts;
     private int healthPerHeart;
-    private int numInitialHearts;
+    private int maxPlayerHeartContainers;
 
     public Image[] heartImages;
     public Sprite[] heartSprites;
@@ -17,61 +17,70 @@ public class HeartSystem : MonoBehaviour
     private void Start()
     {
         player = gameObject.GetComponent<Player>();
+        Player.healthChangedEvent += OnPlayerHealthChanged;
 
         healthPerHeart = heartSprites.Length - 1;
-        maxHeartAmount = heartImages.Length;
-        numInitialHearts = player.Health / healthPerHeart;
+        maxAttainableHearts = heartImages.Length;
 
-        SetVisibleHeartContainers();
-        UpdateHearts();
+        OnPlayerHealthChanged();
     }
 
     void SetVisibleHeartContainers()
     {
         // Loop through all hearts
-        for(int i = 0; i < maxHeartAmount; i++)
+        for (int i = 0; i < maxAttainableHearts; i++)
         {
-            // Within the current heart capacity
-            if(i < numInitialHearts)
+            // Enable hearts within the current capacity
+            if(i < maxPlayerHeartContainers)
             {
                 heartImages[i].enabled = true;
             }
-            // Disable unused heart slots
+            // Disable unused heart images
             else
             {
                 heartImages[i].enabled = false;
             }
         }
     }
+    
+    void OnPlayerHealthChanged()
+    {
+        maxPlayerHeartContainers = (player.MaxHealth + 1) / healthPerHeart;
+        SetVisibleHeartContainers();
+        UpdateHearts();
+    }
 
-    // TODO make this better
     void UpdateHearts()
     {
-        bool empty = false;
-        int i = 0;
+        int indexOfLastNonemptyContainer = (int)Mathf.Max(0, (int)((player.Health + 1) / healthPerHeart - 1));
+        bool evenHealth = player.Health % 2 == 0 && player.Health != 0;
 
-        foreach (Image image in heartImages)
+        // Full red hearts
+        for (int i = 0; i < indexOfLastNonemptyContainer; i++)
         {
-            if(empty)
-            {
-                image.sprite = heartSprites[0];
-            }
-            else
-            {
-                i++;
+            heartImages[i].sprite = heartSprites[heartSprites.Length - 1];
+        }
 
-                if(player.Health >= i * healthPerHeart)
-                {
-                    image.sprite = heartSprites[heartSprites.Length - 1];
-                }
-                else
-                {
-                    int currentHeartHealth = (int)(healthPerHeart - (healthPerHeart * i - player.Health));
-                    int spriteIndex = currentHeartHealth / healthPerHeart;
-                    image.sprite = heartSprites[spriteIndex];
-                    empty = true;
-                }
-            }
+        // Last heart full
+        if (evenHealth)
+        {
+            heartImages[indexOfLastNonemptyContainer].sprite = heartSprites[heartSprites.Length - 1];
+        }
+        // Last heart empty (edge case of death)
+        else if(player.Health == 0)
+        {
+            heartImages[0].sprite = heartSprites[0];
+        }
+        // Last heart half
+        else
+        {
+            heartImages[indexOfLastNonemptyContainer].sprite = heartSprites[1];
+        }
+
+        // All others beyond that are empty
+        for (int i = indexOfLastNonemptyContainer + 1; i < maxPlayerHeartContainers; i++)
+        {
+            heartImages[i].sprite = heartSprites[0];
         }
     }
 }
