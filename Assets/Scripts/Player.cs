@@ -59,6 +59,7 @@ public class Player : Entity
         if(other.gameObject.tag == "Enemy")
         {
             collidingWithEnemy = false;
+            StopCoroutine(ExchangeContactDamageWith(other));
         }
     }
 
