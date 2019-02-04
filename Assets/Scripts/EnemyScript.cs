@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
 
     }
 
