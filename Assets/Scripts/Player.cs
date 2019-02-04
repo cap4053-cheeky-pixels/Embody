@@ -6,13 +6,15 @@ public class Player : Entity
 {
     public delegate void HealthChanged();
     public static event HealthChanged healthChangedEvent;
+    private bool collidingWithEnemy;
 
     private void Start()
     {
         MaxHealth = 6;
         Health = MaxHealth;
-        Strength = 1;
+        Strength = 2;
         Speed = 20;
+        collidingWithEnemy = false;
     }
 
     public override void Move()
@@ -43,12 +45,31 @@ public class Player : Entity
         }
     }
 
-    // TODO remove once enemies and attacking have been implemented; in the meantime, this suffices for damage testing
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Enemy")
+        {
+            collidingWithEnemy = true;
+            StartCoroutine(ExchangeContactDamageWith(other));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            collidingWithEnemy = false;
+            StopCoroutine(ExchangeContactDamageWith(other));
+        }
+    }
+
+    IEnumerator ExchangeContactDamageWith(Collider other)
+    {
+        while(collidingWithEnemy && other != null && this != null)
         {
             ChangeHealth(-1);
+            other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
+            yield return new WaitForSeconds(tickRate);
         }
     }
 }
