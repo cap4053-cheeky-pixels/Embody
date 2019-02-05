@@ -9,43 +9,21 @@ public class DoorMechanism : MonoBehaviour
 
     // Added array of GameObjects to keep track of number of enemies.
     // enemyCount just to simplify the condition in OnTriggerEnter
-    public GameObject player;
+  
     public GameObject[] enemies;
     public int enemyCount = 0;
 
     void Start()
     {
         doorOpen = false;
-        animator = GetComponent<Animator>();
-
-        // initializes enemies array and sets enemyCount 
-        // for number of enemies in the scene
-        if (enemies != null)
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            enemyCount += 1;
-        }
-
-    }
-
-    void Update()
-    {
-        foreach (GameObject enemy in enemies)
-        {
-            if (enemy == null)
-            {   // if an enemy is destroyed, count is updated
-                // and the array is recycled
-                enemyCount -= 1;
-                System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>(enemies);
-                list.Remove(enemy);
-                enemies = list.ToArray();
-            }
-        }
+        animator = GetComponent<Animator>();    
     }
 
     void OnTriggerEnter(Collider other)
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyCount = enemies.Length;
+        
         if(other.gameObject.tag == "Player" && enemyCount == 0)
         {
             doorOpen = true;
