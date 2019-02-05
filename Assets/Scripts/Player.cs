@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Entity
 {
     public delegate void HealthChanged();
-    public static event HealthChanged healthChangedEvent;
+    public event HealthChanged healthChangedEvent;
     private bool collidingWithEnemy;
 
     private void Start()
