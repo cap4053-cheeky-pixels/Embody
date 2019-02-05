@@ -22,6 +22,15 @@ public class Enemy : Entity
         // TODO code
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player-Fireball")
+        {
+            ChangeHealth(-1);
+            Destroy(other.gameObject);
+        }
+    }
+
     public override void ChangeMaxHealth(int amount)
     {
         MaxHealth += amount;

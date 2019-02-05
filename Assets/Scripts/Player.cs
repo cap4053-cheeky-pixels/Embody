@@ -47,7 +47,6 @@ public class Player : Entity
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision detected");
         if (other.gameObject.tag == "Enemy")
         {
             collidingWithEnemy = true;
