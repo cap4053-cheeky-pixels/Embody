@@ -9,10 +9,14 @@ public class AvoidantEnemy : MonoBehaviour
     private Transform target;
     public float speed = 5.0f;
     public bool spawned = false;
+    private GameObject enemy, FlySpawnPoint, FlySpawnPoint2;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Corner").transform;
+        enemy = GameObject.Find("Enemy");
+        FlySpawnPoint = GameObject.Find("FlySpawnPoint");
+        FlySpawnPoint2 = GameObject.Find("FlySpawnPoint2");
     }
 
     // Update is called once per frame
@@ -25,8 +29,8 @@ public class AvoidantEnemy : MonoBehaviour
         {
             if (!spawned)
             {
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint").transform.position, Quaternion.identity);
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint2").transform.position, Quaternion.identity);
+                Instantiate(enemy, FlySpawnPoint.transform.position, Quaternion.identity);
+                Instantiate(enemy, FlySpawnPoint2.transform.position, Quaternion.identity);
                 spawned = true;
             }
         }
