@@ -47,10 +47,16 @@ public class Player : Entity
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision detected");
         if (other.gameObject.tag == "Enemy")
         {
             collidingWithEnemy = true;
             StartCoroutine(ExchangeContactDamageWith(other));
+        }
+        else if(other.gameObject.tag == "Enemy-Fireball")
+        {
+            ChangeHealth(-1);
+            Destroy(other.gameObject);
         }
     }
 

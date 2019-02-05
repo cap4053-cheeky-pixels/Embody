@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Rigidbody body;
 
-    // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float Horizontal = Input.GetAxis("Horizontal");
@@ -22,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(Horizontal, 0.0f, Vertical);
 
-        body.AddForce(move * speed);
+        // change direction of player
+        if(Horizontal != 0 || Vertical != 0)
+            body.rotation = Quaternion.LookRotation(move);
+
+        // set velocity of player
+        body.velocity = move * speed;
     }
 }
