@@ -16,12 +16,16 @@ public class HeartSystem : MonoBehaviour
 
     private void Start()
     {
-        player = gameObject.GetComponent<Player>();
-        Player.healthChangedEvent += OnPlayerHealthChanged;
-
         healthPerHeart = heartSprites.Length - 1;
         maxAttainableHearts = heartImages.Length;
 
+        AssociateWith(GameObject.Find("Player").GetComponent<Player>());        
+    }
+
+    void AssociateWith(Player player)
+    {
+        this.player = player;
+        player.healthChangedEvent += OnPlayerHealthChanged;
         OnPlayerHealthChanged();
     }
 
