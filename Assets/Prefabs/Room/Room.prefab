@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 3452622137686949335}
   - component: {fileID: 3452622137686949328}
   - component: {fileID: 3452622137686949329}
-  - component: {fileID: 3452622137686949333}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -182,19 +181,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &3452622137686949333
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3452622137686949330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3452622137802051539
 GameObject:
@@ -338,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3452622138150947312}
   - component: {fileID: 3452622138150947319}
+  - component: {fileID: 5725843359533712427}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -374,3 +361,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doors: []
+--- !u!65 &5725843359533712427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452622138150947313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 1.5, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}

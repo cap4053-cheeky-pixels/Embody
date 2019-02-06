@@ -9,7 +9,7 @@ public class RoomScript : MonoBehaviour
 
     private SpawnScript spawner;
     private List<GameObject> enemies;
-    private int numEnemies;
+    private int numEnemies = 0;
 
     // TODO somehow keep track of current list of enemies, not just original... how do we know when an enemy dies?
 
@@ -22,16 +22,30 @@ public class RoomScript : MonoBehaviour
 
     /* Called when any other collision object enters this Room. Used to detect when the player
      * enters the room. If there are currently enemies, it will lock all doors.
-     */ 
+     */
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player" && numEnemies != 0)
+        if (collision.gameObject.tag == "Player")
         {
-            // Lock all doors behind the player if there are still enemies
-            foreach(GameObject door in doors)
+            // Enemies remaining
+            if (numEnemies != 0)
             {
-                DoorController doorController = door.GetComponent<DoorController>();
-                doorController.Close();
+                // Lock all doors behind the player if there are still enemies
+                foreach (GameObject door in doors)
+                {
+                    DoorController doorController = door.GetComponent<DoorController>();
+                    doorController.Close();
+                }
+            }
+            // No more enemies
+            else
+            {
+                // Unlock all doors behind the player if there are no more enemies
+                foreach (GameObject door in doors)
+                {
+                    DoorController doorController = door.GetComponent<DoorController>();
+                    doorController.Open();
+                }
             }
         }
     }

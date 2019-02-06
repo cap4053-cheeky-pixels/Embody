@@ -5,22 +5,32 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     Animator animator;
+    bool doorOpen;
 
     void Start()
     {
+        doorOpen = false;
         animator = GetComponent<Animator>();
     }
 
     /* Opens the Door object this script is associated with */
     public void Open()
     {
-        ChangeDoorState("Open");
+        if(!doorOpen)
+        {
+            doorOpen = true;
+            ChangeDoorState("Open");
+        }
     }
 
     /* Closes the Door object this script is associated with */
     public void Close()
     {
-        ChangeDoorState("Close");
+        if(doorOpen)
+        {
+            doorOpen = false;
+            ChangeDoorState("Close");
+        }
     }
 
     /* Changes the associated Door object's state via its animator component */

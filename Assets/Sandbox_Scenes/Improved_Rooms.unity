@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &75923886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4025529276289133280, guid: 499c33ca7ce3cf3418634548783b4b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369093964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &395081677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +267,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3452622137366114075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1051531787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7186022594502157710, guid: ac976b2e53a94a744bec40022291c681,
+    type: 3}
+  m_PrefabInstance: {fileID: 1975180510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1051531788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051531787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ab7e0b7928db64a8d3241e17896460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 75923886}
 --- !u!1001 &1369093964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025529276289133286, guid: 499c33ca7ce3cf3418634548783b4b4c,
+        type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499c33ca7ce3cf3418634548783b4b4c, type: 3}
@@ -1030,5 +1060,6 @@ PrefabInstance:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 1845867519}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3452622137686949333, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
