@@ -16,11 +16,11 @@ public class SpawnScript : MonoBehaviour
         {
             SpawnPoint spawnPoint = child.gameObject.GetComponent<SpawnPoint>();
             GameObject enemyToSpawn = spawnPoint.enemyPrefab;
-            enemyToSpawn.tag = "Enemy";
 
             // If an enemy is set to spawn at that point, go ahead and instantiate it
             if (enemyToSpawn != null)
             {
+                enemyToSpawn.tag = "Enemy";
                 Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity);
                 enemiesSpawned.Add(enemyToSpawn);
             }

@@ -13,11 +13,12 @@ public class RoomScript : MonoBehaviour
 
     // TODO somehow keep track of current list of enemies, not just original... how do we know when an enemy dies?
 
-    private void Start()
+    private void Awake()
     {
         spawner = gameObject.transform.Find("SpawnPoints").gameObject.GetComponent<SpawnScript>();
         enemies = spawner.SpawnEnemies();
         numEnemies = enemies.Count;
+        Debug.Log("Number of enemies spawned = " + numEnemies);
     }
 
     /* Called when any other collision object enters this Room. Used to detect when the player

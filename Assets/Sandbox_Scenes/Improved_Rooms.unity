@@ -1060,6 +1060,12 @@ PrefabInstance:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 1845867519}
+    - target: {fileID: 3452622137903342520, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7711736916075473785, guid: 2a0067482647c16489bacf24af9f6c51,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 3452622137686949333, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
