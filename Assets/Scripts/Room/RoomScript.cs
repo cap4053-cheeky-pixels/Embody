@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
+    // To be assigned via the Unity editor
     public List<GameObject> doors;
 
     private SpawnScript spawner;
