@@ -52,6 +52,11 @@ public class Player : Entity
             collidingWithEnemy = true;
             StartCoroutine(ExchangeContactDamageWith(other));
         }
+        else if(other.gameObject.tag == "Enemy-Fireball")
+        {
+            ChangeHealth(-1);
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)

@@ -6,6 +6,10 @@ public class ProjectileLauncher_1 : MonoBehaviour
 {
     public float speed;
     public GameObject projectile;
+    public float interval;
+    public float projectileLifetime;
+
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -16,31 +20,22 @@ public class ProjectileLauncher_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+        timer += Time.deltaTime;
+        if (timer > interval)
         {
-            GameObject projectileInstance = Instantiate(projectile, transform.position, transform.rotation);
-            GameObject player = GameObject.Find("Player");
-            ////var worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.x, player.transform.position.z));
-            //var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //worldMousePosition.z = 0;
-            
-            Rigidbody rigidbody = projectileInstance.GetComponent<Rigidbody>();
-            ////rigidbody.velocity = worldMousePosition.normalized * speed;
-            ///
-            //Get the Screen positions of the object
-            Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+            if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Z))
+            {
+                GameObject projectileInstance = Instantiate(projectile, transform.position + new Vector3(0, 2, 0), transform.rotation);
 
-            //Get the Screen position of the mouse
-            Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+                Rigidbody rigidbody = projectileInstance.GetComponent<Rigidbody>();
 
-            float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-            projectileInstance.transform.position = player.transform.position + new Vector3(5, 5, 5);
-            rigidbody.velocity = transform.TransformDirection(new Vector3(-90f, angle -90f, 0f)) * speed;
+                rigidbody.velocity = transform.forward * speed;
+
+                Destroy(projectileInstance, projectileLifetime);
+
+                timer = 0;
+            }
         }
-    }
-
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-    {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 }
