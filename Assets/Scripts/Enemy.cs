@@ -6,7 +6,7 @@ public class Enemy : Entity
 {
     private void Start()
     {
-        MaxHealth = 8;
+        MaxHealth = 1;
         Health = MaxHealth;
         Strength = 1;
         Speed = 20;
