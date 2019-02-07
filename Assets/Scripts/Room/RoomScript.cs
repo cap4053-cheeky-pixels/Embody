@@ -8,6 +8,7 @@ public class RoomScript : MonoBehaviour
     public List<GameObject> doors;
     public GameObject currentRoom;
 
+    private HashSet<GameObject> spawnedEnemies;
     private EnemyDetection detection;
     private SpawnScript spawner;
     private WaitForSeconds wait;
@@ -18,22 +19,68 @@ public class RoomScript : MonoBehaviour
     private void Awake()
     {
         spawner = gameObject.transform.Find("SpawnPoints").gameObject.GetComponent<SpawnScript>();
-        spawner.SpawnEnemies();
+        spawnedEnemies = spawner.SpawnEnemies();
+        numEnemies = spawnedEnemies.Count;
+        SubscribeToEnemyDeath();
     }
 
-    void Start()
+    /* Allows this Room to listen to each enemy it has spawned in order to
+     * detect enemy death. This allows it to control when the room doors open.
+     */ 
+    void SubscribeToEnemyDeath()
     {
-        wait = new WaitForSeconds(0.5f);
-        detection = currentRoom.GetComponent<EnemyDetection>();
-        numEnemies = detection.EnemyCount(currentRoom);
-        Debug.Log("Number of enemies spawned = " + numEnemies);
+        foreach(GameObject enemyObject in spawnedEnemies)
+        {
+            Enemy enemy = enemyObject.gameObject.GetComponent<Enemy>();
+
+            if(enemy != null)
+            {
+                enemy.deathEvent += OnEnemyDied;
+            }
+        }
     }
-    
+
+    /* Called each time an enemy dies in the current room. Used to update the
+     * enemy count and to handle the case when all enemies have been slain.
+     */ 
+    void OnEnemyDied(GameObject enemy)
+    {
+        spawnedEnemies.Remove(enemy);
+        numEnemies--;
+        Debug.Log("An enemy died! Current room now has " + numEnemies + " enemies!");
+
+        if(numEnemies == 0)
+        {
+            UnlockAllDoors();
+        }
+    }   
+
+    /* Opens all doors for the current room.
+     */ 
+    void UnlockAllDoors()
+    {
+        foreach (GameObject door in doors)
+        {
+            DoorController doorController = door.GetComponent<DoorController>();
+            doorController.Open();
+        }
+    }
+
+    /* Closes all doors for the current room.
+     */
+    void LockAllDoors()
+    {
+        foreach (GameObject door in doors)
+        {
+            DoorController doorController = door.GetComponent<DoorController>();
+            doorController.Close();
+        }
+    }
 
     /* Called when any other collision object enters this Room. Used to detect when the player
      * enters the room. If there are currently enemies, it will lock all doors.
      */
-    private IEnumerator OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
        if (collision.gameObject.tag == "Player")
         {
@@ -41,32 +88,12 @@ public class RoomScript : MonoBehaviour
             if (numEnemies != 0)
             {
                 // Lock all doors behind the player if there are still enemies
-                foreach (GameObject door in doors)
-                {
-                    DoorController doorController = door.GetComponent<DoorController>();
-                    doorController.Close();
-                }
-                /* Updates numEnemies every 'wait' seconds */
-                while (numEnemies != 0)
-                {
-                    numEnemies = detection.EnemyCount(currentRoom);
-                    yield return wait;
-                }
-                foreach (GameObject door in doors)
-                {
-                    DoorController doorController = door.GetComponent<DoorController>();
-                    doorController.Open();
-                }
+                LockAllDoors();
             }
             // No more enemies
             else
             {
-                // Unlock all doors behind the player if there are no more enemies
-                foreach (GameObject door in doors)
-                {
-                    DoorController doorController = door.GetComponent<DoorController>();
-                    doorController.Open();
-                }
+                UnlockAllDoors();
             }
         }
     }

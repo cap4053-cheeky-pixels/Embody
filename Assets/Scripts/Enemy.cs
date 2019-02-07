@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public delegate void Died(GameObject who);
+    public event Died deathEvent;
+
     private void Start()
     {
         MaxHealth = 1;
@@ -42,6 +45,7 @@ public class Enemy : Entity
 
         if (Health == 0)
         {
+            deathEvent?.Invoke(gameObject);
             // TODO make eligible for possession instead of destroying
             Destroy(gameObject);
         }
