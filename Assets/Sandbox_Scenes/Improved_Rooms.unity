@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -269,6 +269,11 @@ PrefabInstance:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 1567679258}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: currentRoom
+      value: 
+      objectReference: {fileID: 1366852393}
     - target: {fileID: 3452622137903342520, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
         type: 3}
       propertyPath: enemyPrefab
@@ -502,6 +507,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3452622137366114075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &905723784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3452622138150947313, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3452622137366114075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &905723785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905723784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce51f5e9f50c34cd980f82a639793844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  room: {fileID: 905723784}
 --- !u!1 &1051531787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7186022594502157710, guid: ac976b2e53a94a744bec40022291c681,
@@ -521,6 +546,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 75923886}
+--- !u!1 &1366852393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3452622138150947313, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+    type: 3}
+  m_PrefabInstance: {fileID: 158373586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1366852394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366852393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce51f5e9f50c34cd980f82a639793844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  room: {fileID: 1366852393}
 --- !u!1001 &1369093964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1375,6 +1420,11 @@ PrefabInstance:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 1845867519}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: currentRoom
+      value: 
+      objectReference: {fileID: 905723784}
     - target: {fileID: 3452622137903342520, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
         type: 3}
       propertyPath: enemyPrefab
