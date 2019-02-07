@@ -9,7 +9,7 @@ public class Enemy : Entity
 
     private void Start()
     {
-        MaxHealth = 5;
+        MaxHealth = 1;
         Health = MaxHealth;
         Strength = 1;
         Speed = 3;
@@ -21,15 +21,16 @@ public class Enemy : Entity
     // Update is called once per frame
     void Update()
     {
-        //face the player
-        transform.LookAt(target);
-        //movet towards the player
-        transform.position += transform.forward * Speed * Time.deltaTime;
+        if (Health != 0)
+            Move();
     }
 
     public override void Move()
     {
-        // TODO code
+        //face the player
+        transform.LookAt(target);
+        //move towards the player
+        transform.position += transform.forward * Speed * Time.deltaTime;
     }
 
     public override void Attack()
@@ -54,14 +55,22 @@ public class Enemy : Entity
 
     public override void ChangeHealth(int amount)
     {
-        Health += amount;
-
-        if (Health == 0)
+        
+        if (Health == 0 || Health + amount <= 0)
         {
-            // TODO make eligible for possession instead of destroying
+            Health = 0;
+           
+            /* tag this enemy as dead, make it sleep for one frame (that is stop any forces applying on it indefinitely since it wont be awakened), and then
+            disable the sphere collider by setting trigger to true. This has the added benefit of causing Player collision trigger routines to start.
+            */
+            gameObject.tag = "DeadDude";
+            gameObject.GetComponent<Rigidbody>().Sleep();
+            gameObject.GetComponent<Collider>().isTrigger = true;
 
-            //the below line outlines the gameObject, to be used possibly when enemy has died.
-            gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
+            //the below line outlines the gameObject, to be used possibly when enemy is eligible for Possession.
+            //gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
         }
+        else
+            Health += amount;
     }
 }
