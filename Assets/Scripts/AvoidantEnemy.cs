@@ -8,9 +8,12 @@ public class AvoidantEnemy : Enemy
     public float speed = 5.0f;
     public bool spawned = false;
 
+    // to be filled in through Inspector
+    public Transform clone;
+
     void Start()
     {
-        MaxHealth = 3;
+        MaxHealth = 1;
         Health = MaxHealth;
         Strength = 1;
         Speed = 20;
@@ -27,8 +30,8 @@ public class AvoidantEnemy : Enemy
         {
             if (!spawned)
             {
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint").transform.position, Quaternion.identity);
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint2").transform.position, Quaternion.identity);
+                Instantiate(clone, GameObject.Find("FlySpawnPoint").transform.position, Quaternion.identity);
+                Instantiate(clone, GameObject.Find("FlySpawnPoint2").transform.position, Quaternion.identity);
                 spawned = true;
             }
         }
