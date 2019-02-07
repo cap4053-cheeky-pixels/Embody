@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7711736916075473787}
   m_Layer: 0
   m_Name: Tree 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   x_speed: -10
   y_speed: 0
   z_speed: 0
+  projectileLifetime: 0
   interval: 3
   projectile: {fileID: 1977777181098060089, guid: 31a42e1c515d87a4db57c19995ea8d11,
     type: 3}
