@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+
     //the target position of this enemy
     protected Transform target;
+    public delegate void Died(GameObject who);
+    public event Died deathEvent;
+
 
     private void Start()
     {
@@ -58,6 +62,7 @@ public class Enemy : Entity
         
         if (Health == 0 || Health + amount <= 0)
         {
+
             Health = 0;
            
             /* tag this enemy as dead, make it sleep for one frame (that is stop any forces applying on it indefinitely since it wont be awakened), and then
@@ -69,6 +74,9 @@ public class Enemy : Entity
 
             //the below line outlines the gameObject, to be used possibly when enemy is eligible for Possession.
             //gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
+
+            deathEvent?.Invoke(gameObject);
+            
         }
         else
             Health += amount;
