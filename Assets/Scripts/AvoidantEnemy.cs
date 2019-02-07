@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvoidantEnemy : MonoBehaviour
+public class AvoidantEnemy : Enemy
 {
-    // Start is called before the first frame update
 
     private Transform target;
     public float speed = 5.0f;
@@ -12,6 +11,10 @@ public class AvoidantEnemy : MonoBehaviour
 
     void Start()
     {
+        MaxHealth = 3;
+        Health = MaxHealth;
+        Strength = 1;
+        Speed = 20;
         target = GameObject.FindGameObjectWithTag("Corner").transform;
     }
 

@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    //the target position of this enemy
+    private Transform target;
+
     private void Start()
     {
-        MaxHealth = 1;
+        MaxHealth = 5;
         Health = MaxHealth;
         Strength = 1;
-        Speed = 20;
+        Speed = 3;
+
+        //locate Player, let this be the target
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //face the player
+        transform.LookAt(target);
+        //movet towards the player
+        transform.position += transform.forward * Speed * Time.deltaTime;
     }
 
     public override void Move()
@@ -29,6 +44,7 @@ public class Enemy : Entity
             ChangeHealth(-1);
             Destroy(other.gameObject);
         }
+
     }
 
     public override void ChangeMaxHealth(int amount)
@@ -43,7 +59,9 @@ public class Enemy : Entity
         if (Health == 0)
         {
             // TODO make eligible for possession instead of destroying
-            Destroy(gameObject);
+
+            //the below line outlines the gameObject, to be used possibly when enemy has died.
+            gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
         }
     }
 }
