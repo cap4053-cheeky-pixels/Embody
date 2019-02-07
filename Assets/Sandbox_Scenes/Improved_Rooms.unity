@@ -284,8 +284,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 170242390039327425, guid: 1775e5192dc10e14ba9049d5103ea49c,
-        type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3452622137686949333, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
@@ -306,6 +305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallWithDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5112543974233715998, guid: e158565cd2d46564a9999950a941a04b,
         type: 3}
@@ -361,11 +365,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e158565cd2d46564a9999950a941a04b, type: 3}
@@ -519,6 +518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallWithDoor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5112543974233715998, guid: e158565cd2d46564a9999950a941a04b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,11 +577,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e158565cd2d46564a9999950a941a04b, type: 3}
@@ -832,7 +831,7 @@ PrefabInstance:
     - target: {fileID: 4025529276289133284, guid: 499c33ca7ce3cf3418634548783b4b4c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.56
+      value: 31.55
       objectReference: {fileID: 0}
     - target: {fileID: 4025529276289133284, guid: 499c33ca7ce3cf3418634548783b4b4c,
         type: 3}
@@ -887,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 4025529276289133286, guid: 499c33ca7ce3cf3418634548783b4b4c,
         type: 3}
       propertyPath: speed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499c33ca7ce3cf3418634548783b4b4c, type: 3}
@@ -902,6 +901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallWithDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5112543974233715998, guid: e158565cd2d46564a9999950a941a04b,
         type: 3}
@@ -957,11 +961,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e158565cd2d46564a9999950a941a04b, type: 3}

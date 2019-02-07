@@ -23,7 +23,7 @@ public class RoomScript : MonoBehaviour
 
     void Start()
     {
-        wait = new WaitForSeconds(1.0f);
+        wait = new WaitForSeconds(0.5f);
         detection = currentRoom.GetComponent<EnemyDetection>();
         numEnemies = detection.EnemyCount(currentRoom);
         Debug.Log("Number of enemies spawned = " + numEnemies);
@@ -68,7 +68,6 @@ public class RoomScript : MonoBehaviour
                     doorController.Open();
                 }
             }
-
         }
     }
 }
