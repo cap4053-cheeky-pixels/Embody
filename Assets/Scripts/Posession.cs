@@ -22,6 +22,7 @@ public class Posession : MonoBehaviour
         if(other.gameObject.name == "DeadDude" && Input.GetKeyDown("space"))
         {
             player.ChangeMaxHealth(4);
+            player.GetComponent<MeshFilter>().mesh = other.gameObject.GetComponent<MeshFilter>().sharedMesh;
             Destroy(GameObject.Find("DeadDude"));
         }
     }
