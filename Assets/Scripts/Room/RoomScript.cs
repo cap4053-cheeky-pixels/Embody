@@ -26,8 +26,13 @@ public class RoomScript : MonoBehaviour
 
     void Start()
     {
-        wait = new WaitForSeconds(2.0f);
+        wait = new WaitForSeconds(1.0f);
         detection = currentRoom.GetComponent<EnemyDetection>();
+        foreach (GameObject door in doors)
+        {
+            DoorController doorController = door.GetComponent<DoorController>();
+            doorController.Open();
+        }
         numEnemies = detection.EnemyCount(currentRoom);
     }
 
