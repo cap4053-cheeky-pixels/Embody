@@ -10,6 +10,7 @@ TagManager:
   - Player-Fireball
   - Corner
   - Spawner
+  - DeadDude
   layers:
   - Default
   - TransparentFX
