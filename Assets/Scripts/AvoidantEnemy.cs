@@ -5,7 +5,6 @@ using UnityEngine;
 public class AvoidantEnemy : Enemy
 {
 
-    private Transform target;
     public float speed = 5.0f;
     public bool spawned = false;
 

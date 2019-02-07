@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
     //the target position of this enemy
-    private Transform target;
+    protected Transform target;
 
     private void Start()
     {
