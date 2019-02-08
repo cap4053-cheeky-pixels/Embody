@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 170242390039327294}
   - component: {fileID: 170242390039327291}
   m_Layer: 0
-  m_Name: ImmobileEnemy
+  m_Name: SphericalEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
