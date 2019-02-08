@@ -19,12 +19,10 @@ public class Player : Entity
 
     public override void Move()
     {
-        // TODO code
     }
 
     public override void Attack()
     {
-        // TODO code
     }
 
     public override void ChangeMaxHealth(int amount)
@@ -41,6 +39,7 @@ public class Player : Entity
         if (Health == 0)
         {
             // TODO give feedback to signal game over before deleting the player
+            // TODO DONT DESTROY THE PLAYER! THIS THROWS EXCEPTIONS
             Destroy(gameObject);
         }
     }

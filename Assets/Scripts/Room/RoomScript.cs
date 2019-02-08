@@ -6,7 +6,6 @@ public class RoomScript : MonoBehaviour
 {
     // To be assigned via the Unity editor
     public List<GameObject> doors;
-    public GameObject currentRoom;
 
     private HashSet<GameObject> spawnedEnemies;
     private EnemyDetection detection;
@@ -14,8 +13,8 @@ public class RoomScript : MonoBehaviour
     private WaitForSeconds wait;
     private int numEnemies = 0;
 
-    // TODO somehow keep track of current list of enemies, not just original... how do we know when an enemy dies?
-
+    /* Sets up the room by spawning enemies and subscribing to all their death events.
+     */ 
     private void Awake()
     {
         spawner = gameObject.transform.Find("SpawnPoints").gameObject.GetComponent<SpawnScript>();
@@ -45,9 +44,9 @@ public class RoomScript : MonoBehaviour
      */ 
     void OnEnemyDied(GameObject enemy)
     {
+        enemy.GetComponent<Enemy>().SetMovement(false);
         spawnedEnemies.Remove(enemy);
         numEnemies--;
-        Debug.Log("An enemy died! Current room now has " + numEnemies + " enemies!");
 
         if(numEnemies == 0)
         {
@@ -77,6 +76,24 @@ public class RoomScript : MonoBehaviour
         }
     }
 
+    /* Loops through all live enemies in the room and dispatches them to go follow
+     * the player.
+     */ 
+    void DispatchEnemiesToFollowPlayer()
+    {
+        foreach (GameObject enemyObject in spawnedEnemies)
+        {
+            Enemy enemy = enemyObject.gameObject.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                Debug.Log("Enabling an enemy's movement!");
+                // The enemy's update loop condition will then be true
+                enemy.SetMovement(true);
+            }
+        }
+    }
+
     /* Called when any other collision object enters this Room. Used to detect when the player
      * enters the room. If there are currently enemies, it will lock all doors.
      */
@@ -87,8 +104,8 @@ public class RoomScript : MonoBehaviour
             // Enemies remaining
             if (numEnemies != 0)
             {
-                // Lock all doors behind the player if there are still enemies
                 LockAllDoors();
+                DispatchEnemiesToFollowPlayer();
             }
             // No more enemies
             else
