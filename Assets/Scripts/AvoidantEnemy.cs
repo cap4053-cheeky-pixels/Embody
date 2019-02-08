@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvoidantEnemy : MonoBehaviour
+public class AvoidantEnemy : Enemy
 {
-    // Start is called before the first frame update
 
-    private Transform target;
     public float speed = 5.0f;
     public bool spawned = false;
 
+    // to be filled in through Inspector
+    public Transform clone;
+
     void Start()
     {
+        MaxHealth = 1;
+        Health = MaxHealth;
+        Strength = 1;
+        Speed = 20;
         target = GameObject.FindGameObjectWithTag("Corner").transform;
     }
 
@@ -25,8 +30,8 @@ public class AvoidantEnemy : MonoBehaviour
         {
             if (!spawned)
             {
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint").transform.position, Quaternion.identity);
-                Instantiate(GameObject.Find("Enemy"), GameObject.Find("FlySpawnPoint2").transform.position, Quaternion.identity);
+                Instantiate(clone, GameObject.Find("FlySpawnPoint").transform.position, Quaternion.identity);
+                Instantiate(clone, GameObject.Find("FlySpawnPoint2").transform.position, Quaternion.identity);
                 spawned = true;
             }
         }

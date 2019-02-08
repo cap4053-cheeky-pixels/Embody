@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Enemy-Fireball
   - Player-Fireball
+  - Corner
+  - Spawner
+  - DeadDude
   layers:
   - Default
   - TransparentFX

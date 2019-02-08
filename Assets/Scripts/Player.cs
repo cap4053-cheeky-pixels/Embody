@@ -61,7 +61,7 @@ public class Player : Entity
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "DeadDude")
         {
             collidingWithEnemy = false;
             StopCoroutine(ExchangeContactDamageWith(other));
@@ -73,7 +73,26 @@ public class Player : Entity
         while(collidingWithEnemy && other != null && this != null)
         {
             ChangeHealth(-1);
-            other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
+            if (other.gameObject.tag != "Spawner")
+            {
+                other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
+
+                /* While colliding with an enemy, it may be that it has died and so is no longer an enemy. As a result, we must explicitly call
+                OnTriggerExit
+                */
+                if (other.gameObject.tag == "DeadDude")
+                    OnTriggerExit(other);
+            }
+            else
+            {
+                other.gameObject.GetComponent<AvoidantEnemy>().ChangeHealth(-1);
+
+                /* While colliding with an enemy, it may be that it has died and so is no longer an enemy. As a result, we must explicitly call
+                OnTriggerExit
+                */
+                if (other.gameObject.tag == "DeadDude")
+                    OnTriggerExit(other);
+            }
             yield return new WaitForSeconds(tickRate);
         }
     }

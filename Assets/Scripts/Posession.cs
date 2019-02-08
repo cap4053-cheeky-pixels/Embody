@@ -19,10 +19,12 @@ public class Posession : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.name == "DeadDude" && Input.GetKeyDown("space"))
+        if(other.gameObject.tag == "DeadDude" && Input.GetKeyDown("space"))
         {
             player.ChangeMaxHealth(4);
-            Destroy(GameObject.Find("DeadDude"));
+            player.ChangeHealth(4);
+            player.GetComponent<MeshFilter>().mesh = other.gameObject.GetComponent<MeshFilter>().sharedMesh;
+            Destroy(other.gameObject);
         }
     }
 }
