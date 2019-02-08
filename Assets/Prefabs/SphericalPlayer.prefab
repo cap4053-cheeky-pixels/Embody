@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4025529276289133081}
   - component: {fileID: 4025529276289133080}
   - component: {fileID: 4025529276289133083}
+  - component: {fileID: 6269973983101303745}
   m_Layer: 0
   m_Name: SphericalPlayer
   m_TagString: Player
@@ -149,3 +150,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6269973983101303745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025529276289133280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ac85168aec4470f92583ad9785c55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
