@@ -19,7 +19,7 @@ public class HeartSystem : MonoBehaviour
         healthPerHeart = heartSprites.Length - 1;
         maxAttainableHearts = heartImages.Length;
 
-        AssociateWith(GameObject.Find("Player").GetComponent<Player>());        
+        AssociateWith(GameObject.FindWithTag("Player").GetComponent<Player>());
     }
 
     void AssociateWith(Player player)

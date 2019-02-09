@@ -11,7 +11,21 @@ public class Player : Entity
     public delegate void HealthChanged();
     public event HealthChanged healthChangedEvent;
     private bool collidingWithEnemy;
-    private ProjectileLauncher_1 shooter;
+    public GameObject weapon;
+    private IWeapon fireableWeapon;
+    private CharacterController cc;
+
+    public void setWeapon(GameObject weapon)
+    {
+        this.weapon = weapon;
+        fireableWeapon = this.weapon.GetComponent<IWeapon>();
+    }
+
+    private void Awake()
+    {
+        cc = GetComponent<CharacterController>();
+        setWeapon(weapon);
+    }
 
     private void Start()
     {
@@ -21,33 +35,47 @@ public class Player : Entity
         Speed = speed;
 
         collidingWithEnemy = false;
-        shooter = gameObject.GetComponent<ProjectileLauncher_1>();
     }
 
     private void Update()
     {
-        Vector3 direction = transform.forward;
+        float Horizontal = Input.GetAxis("Horizontal");
+        float Vertical = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(Horizontal, 0.0f, Vertical);
+
+        // Move the player
+        cc.SimpleMove(move * speed);
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.forward = new Vector3(-1, 0, 0);
-            shooter.Shoot();
+            FireWeapon();
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.forward = new Vector3(1, 0, 0);
-            shooter.Shoot();
+            FireWeapon();
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.forward = new Vector3(0, 0, 1);
-            shooter.Shoot();
+            FireWeapon();
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.forward = new Vector3(0, 0, -1);
-            shooter.Shoot();
+            FireWeapon();
         }
+    }
+
+    private void FireWeapon()
+    {
+        if (fireableWeapon != null)
+        {
+            fireableWeapon.Fire("Player-Fireball");
+        }
+        // TODO
     }
 
     public override void Move()
