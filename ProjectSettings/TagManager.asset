@@ -11,6 +11,7 @@ TagManager:
   - Corner
   - Spawner
   - DeadDude
+  - Half-Heart
   layers:
   - Default
   - TransparentFX
