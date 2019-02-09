@@ -5,11 +5,13 @@ using UnityEngine;
 public class BasicWeapon : MonoBehaviour, IWeapon
 {
     public GameObject projectile;
-    public float speed;
-    public float interval;
-    public float projectileLifetime;
-    public float damage;
+    public float speed = 15;
+    public float interval = 1;
+    public float projectileLifetime = 10;
+    public float damage = 1;
     private float timer = 0;
+    public float forwardOffset = 1.5f;
+    public float upwardOffset = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +22,18 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     {
         timer += Time.deltaTime;
     }
-
-    public void Fire()
+    public void Fire(string tag)
     {
         if (timer > interval)
         {
             Debug.Log("Blap");
             Vector3 spawnPos =
-                new Vector3(0, 1.5f, 0) + transform.position + transform.forward * 1;
+                new Vector3(0, upwardOffset, 0) + transform.position + transform.forward * forwardOffset;
             GameObject projectileInstance =
                 Instantiate(projectile, spawnPos, transform.rotation);
 
             Projectile pro = projectileInstance.GetComponent<Projectile>();
+            pro.tag = tag;
             pro.velocity = transform.forward * speed;
             pro.damage = damage;
 

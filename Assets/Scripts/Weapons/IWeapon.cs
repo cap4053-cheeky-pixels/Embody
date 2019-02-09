@@ -1,4 +1,4 @@
 ﻿public interface IWeapon
 {
-    void Fire();
+    void Fire(string tag);
 }
