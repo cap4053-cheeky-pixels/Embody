@@ -11,12 +11,19 @@ public class Enemy : Entity
     public delegate void Died(GameObject who);
     public event Died deathEvent;
 
+    public int maxHealth;
+    public int strength;
+    public int speed;
+    public float healthDropProbability;
+    public GameObject HalfHeart;
+
+
     private void Start()
     {
-        MaxHealth = 4;
+        MaxHealth = this.maxHealth;
         Health = MaxHealth;
-        Strength = 1;
-        Speed = 3;
+        Strength = this.strength;
+        Speed = this.speed;
 
         //locate Player, let this be the target
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -53,10 +60,29 @@ public class Enemy : Entity
     {
         if (other.gameObject.tag == "Player-Fireball")
         {
-            ChangeHealth(-1);
-            Destroy(other.gameObject);
+            if (Health != 0)
+            {
+                ChangeHealth(-1);
+                Destroy(other.gameObject);
         }
+    }
 
+    }
+
+    void HealthDrop()
+    {
+        // calculate whether or not to drop
+        var chance = Random.Range(0f, 1f);
+        if(chance <= healthDropProbability)
+        {
+            var randX = Random.Range(-600, 600);
+            var randZ = Random.Range(-600, 600);
+            var heart = Instantiate(HalfHeart, transform.position + new Vector3(0, 2, 0), HalfHeart.transform.rotation);
+
+            var heartRb = heart.GetComponent<Rigidbody>();
+
+            heartRb.AddForce(new Vector3(randX, 800, randZ));
+        }
     }
 
     public override void ChangeMaxHealth(int amount)
@@ -78,8 +104,9 @@ public class Enemy : Entity
 
             //the below line outlines the gameObject, to be used possibly when enemy is eligible for Possession.
             //gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
-            
-            deathEvent?.Invoke(gameObject);            
+
+            deathEvent?.Invoke(gameObject);
+            HealthDrop();
         }
         else
             Health += amount;
