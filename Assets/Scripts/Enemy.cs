@@ -21,10 +21,12 @@ public class Enemy : Entity
     private float fireRateTimer = 0;
     private IWeapon fireableWeapon;
     private bool movingEnabled;
+    private CharacterController cc;
 
     private void Awake()
     {
         setWeapon(weapon);
+        cc = GetComponent<CharacterController>();
     }
     private void Start()
     {
@@ -63,9 +65,11 @@ public class Enemy : Entity
     public override void Move()
     {
         //face the player
-        transform.LookAt(target);
+        Vector3 tVector = target.position - transform.position;
+        tVector.y = 0;
+        transform.rotation = Quaternion.LookRotation(tVector);
         //move towards the player
-        transform.position += transform.forward * Speed * Time.deltaTime;
+        cc.SimpleMove(transform.forward * Speed);
     }
 
     public override void Attack()
