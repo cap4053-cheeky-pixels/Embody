@@ -9,9 +9,11 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        // Remove this projectile when it hits something, let them deal
-        // with the fact that they got shoot.
-        Destroy(gameObject);
+        // Remove  projectile only if it hits a wall
+        if (c.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update
