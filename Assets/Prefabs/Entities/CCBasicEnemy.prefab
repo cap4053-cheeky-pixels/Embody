@@ -101,8 +101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6837112944109847745}
   - component: {fileID: 6837112944109847744}
-  - component: {fileID: 6837112944109847758}
-  - component: {fileID: 6837112944109847759}
   - component: {fileID: 6890518356829510894}
   - component: {fileID: 71621225767102706}
   m_Layer: 0
@@ -141,34 +139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d09a2d205f34b54ab13f6653d0bd0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6837112944109847758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837112944109847747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4b36e38e95d2d4b80b1333a72cf0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
-  rotationDamping: 0.8
---- !u!114 &6837112944109847759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837112944109847747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cfc052f3009e434c8edc2c23442f3fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   weapon: {fileID: 5655790152355194670}
   attemptFirerate: 0.5
+  maxHealth: 2
+  strength: 1
+  speed: 1
+  healthDropProbability: 100
+  HalfHeart: {fileID: 4831806734205252699, guid: 662d688ed4777ab45b2d0da5a72ea65e,
+    type: 3}
 --- !u!136 &6890518356829510894
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -6,18 +6,26 @@ public class Enemy : Entity
 {
     //the target position of this enemy
     protected Transform target;
-    private bool movingEnabled;
 
     public delegate void Died(GameObject who);
     public event Died deathEvent;
 
+    public GameObject weapon;
+    public float attemptFirerate = 0.5f;
     public int maxHealth;
-    public int strength;
+    public int strength; // Not used
     public int speed;
     public float healthDropProbability;
     public GameObject HalfHeart;
 
+    private float fireRateTimer = 0;
+    private IWeapon fireableWeapon;
+    private bool movingEnabled;
 
+    private void Awake()
+    {
+        setWeapon(weapon);
+    }
     private void Start()
     {
         MaxHealth = this.maxHealth;
@@ -33,9 +41,17 @@ public class Enemy : Entity
     // Update is called once per frame
     void Update()
     {
+        fireRateTimer += Time.deltaTime;
+
         if(Health != 0 && movingEnabled && target != null)
         {
             Move();
+        }
+
+        if (fireRateTimer > attemptFirerate && movingEnabled && fireableWeapon != null)
+        {
+            fireableWeapon.Fire("Enemy-Fireball");
+            fireRateTimer = 0;
         }
     }
 
@@ -108,4 +124,11 @@ public class Enemy : Entity
             HealthDrop();
         }
     }
+
+    public void setWeapon(GameObject weapon)
+    {
+        this.weapon = weapon;
+        fireableWeapon = this.weapon.GetComponent<IWeapon>();
+    }
+
 }
