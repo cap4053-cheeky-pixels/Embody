@@ -2244,6 +2244,30 @@ PrefabInstance:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 960937845}
+    - target: {fileID: 3452622137655770642, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7874278155268776983, guid: b3b9664aaac175840885d8e92f5b63aa,
+        type: 3}
+    - target: {fileID: 3452622137802051537, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7874278155268776983, guid: b3b9664aaac175840885d8e92f5b63aa,
+        type: 3}
+    - target: {fileID: 3452622137903342520, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7874278155268776983, guid: b3b9664aaac175840885d8e92f5b63aa,
+        type: 3}
+    - target: {fileID: 3452622138062608788, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7874278155268776983, guid: b3b9664aaac175840885d8e92f5b63aa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &1550460822 stripped
