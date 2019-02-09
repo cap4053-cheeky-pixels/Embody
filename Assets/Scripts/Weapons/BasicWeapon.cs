@@ -26,7 +26,6 @@ public class BasicWeapon : MonoBehaviour, IWeapon
     {
         if (timer > interval)
         {
-            Debug.Log("Blap");
             Vector3 spawnPos =
                 new Vector3(0, upwardOffset, 0) + transform.position + transform.forward * forwardOffset;
             GameObject projectileInstance =
