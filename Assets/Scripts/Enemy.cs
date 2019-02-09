@@ -121,8 +121,8 @@ public class Enemy : Entity
             gameObject.tag = "DeadDude";
             gameObject.GetComponent<Collider>().isTrigger = true;
 
-            //the below line outlines the gameObject, to be used possibly when enemy is eligible for Possession.
-            //gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
+            //the below line outlines the gameObject when enemy is eligible for Possession.
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .5f);
 
             deathEvent?.Invoke(gameObject);
             HealthDrop();
