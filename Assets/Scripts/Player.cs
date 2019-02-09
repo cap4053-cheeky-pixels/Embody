@@ -57,6 +57,14 @@ public class Player : Entity
             ChangeHealth(-1);
             Destroy(other.gameObject);
         }
+        else if(other.gameObject.tag == "Half-Heart")
+        {
+            if(Health != MaxHealth)
+            {
+                ChangeHealth(1);
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
