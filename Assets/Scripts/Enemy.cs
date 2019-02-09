@@ -108,7 +108,5 @@ public class Enemy : Entity
             deathEvent?.Invoke(gameObject);
             HealthDrop();
         }
-        else
-            Health += amount;
     }
 }

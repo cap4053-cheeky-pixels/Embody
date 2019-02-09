@@ -104,3 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d09a2d205f34b54ab13f6653d0bd0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 4
+  strength: 1
+  speed: 3
+  healthDropProbability: 0.5
+  HalfHeart: {fileID: 4831806734205252699, guid: 662d688ed4777ab45b2d0da5a72ea65e,
+    type: 3}
