@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4924370204915702909}
   - component: {fileID: 4924370204915702786}
+  - component: {fileID: 4943346785752004887}
   - component: {fileID: 4924370204915702898}
   - component: {fileID: 4924370204915702902}
   - component: {fileID: 758506161}
@@ -173,10 +174,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70cec0367616494bb52e19eda6047a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 6
   strength: 1
   speed: 10
   weapon: {fileID: 4926051988596166081}
+--- !u!114 &4943346785752004887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924370204915702908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ac85168aec4470f92583ad9785c55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &4924370204915702898
 CharacterController:
   m_ObjectHideFlags: 0
