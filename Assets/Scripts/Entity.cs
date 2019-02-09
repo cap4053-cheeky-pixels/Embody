@@ -9,8 +9,6 @@ abstract public class Entity : MonoBehaviour
     public int Strength { get; set; }
     public int Speed { get; set; }
     protected float tickRate = 1.8f;
-    // TODO add AttackPattern or Ability property
-    // TODO potentially incorporate Movement-related code into this class
 
     public abstract void Attack();
     public abstract void Move();

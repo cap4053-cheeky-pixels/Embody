@@ -592,20 +592,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3452622137366114075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &905723785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905723784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce51f5e9f50c34cd980f82a639793844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  center: {x: 0, y: 0, z: 0}
-  room: {fileID: 905723784}
 --- !u!1001 &989010895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1256,6 +1242,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1975180511}
+    - target: {fileID: 1791085198231627544, guid: 36abcad42705c3f47b89e92d1f4d5090,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1791085199895039777, guid: 36abcad42705c3f47b89e92d1f4d5090,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1455,6 +1446,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791085198810090890, guid: 36abcad42705c3f47b89e92d1f4d5090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 322
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791085198810090890, guid: 36abcad42705c3f47b89e92d1f4d5090,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -292
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36abcad42705c3f47b89e92d1f4d5090, type: 3}
@@ -1485,12 +1486,12 @@ PrefabInstance:
     - target: {fileID: 7186022594502157715, guid: ac976b2e53a94a744bec40022291c681,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.31
+      value: 31.08
       objectReference: {fileID: 0}
     - target: {fileID: 7186022594502157715, guid: ac976b2e53a94a744bec40022291c681,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.92
+      value: 19.68
       objectReference: {fileID: 0}
     - target: {fileID: 7186022594502157715, guid: ac976b2e53a94a744bec40022291c681,
         type: 3}

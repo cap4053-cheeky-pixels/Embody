@@ -4,27 +4,58 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public int maxHealth;
+    public int strength;
+    public int speed;
+
     public delegate void HealthChanged();
     public event HealthChanged healthChangedEvent;
     private bool collidingWithEnemy;
+    private ProjectileLauncher_1 shooter;
 
     private void Start()
     {
-        MaxHealth = 6;
+        MaxHealth = maxHealth;
         Health = MaxHealth;
-        Strength = 2;
-        Speed = 20;
+        Strength = strength;
+        Speed = speed;
+
         collidingWithEnemy = false;
+        shooter = gameObject.GetComponent<ProjectileLauncher_1>();
+    }
+
+    private void Update()
+    {
+        Vector3 direction = transform.forward;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.forward = new Vector3(-1, 0, 0);
+            shooter.Shoot();
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.forward = new Vector3(1, 0, 0);
+            shooter.Shoot();
+        }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.forward = new Vector3(0, 0, 1);
+            shooter.Shoot();
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.forward = new Vector3(0, 0, -1);
+            shooter.Shoot();
+        }
     }
 
     public override void Move()
     {
-        // TODO code
     }
 
     public override void Attack()
     {
-        // TODO code
     }
 
     public override void ChangeMaxHealth(int amount)
@@ -41,6 +72,7 @@ public class Player : Entity
         if (Health == 0)
         {
             // TODO give feedback to signal game over before deleting the player
+            // TODO DONT DESTROY THE PLAYER! THIS THROWS EXCEPTIONS
             Destroy(gameObject);
         }
     }
