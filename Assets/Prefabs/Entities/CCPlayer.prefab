@@ -132,11 +132,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4924370204915702909}
+  - component: {fileID: 4924370204915702786}
   - component: {fileID: 4924370204915702898}
   - component: {fileID: 4924370204915702902}
   - component: {fileID: 4924370204915702899}
   - component: {fileID: 4924370204915702897}
-  - component: {fileID: 4924370204915702786}
   - component: {fileID: 758506161}
   m_Layer: 0
   m_Name: CCPlayer
@@ -163,6 +163,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4924370204915702786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924370204915702908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70cec0367616494bb52e19eda6047a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  strength: 1
+  speed: 10
 --- !u!143 &4924370204915702898
 CharacterController:
   m_ObjectHideFlags: 0
@@ -221,21 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 4926051988596166081}
---- !u!114 &4924370204915702786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4924370204915702908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70cec0367616494bb52e19eda6047a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  strength: 0
-  speed: 0
 --- !u!54 &758506161
 Rigidbody:
   m_ObjectHideFlags: 0
