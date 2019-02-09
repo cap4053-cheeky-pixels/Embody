@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   strength: 1
-  speed: 3
+  speed: 5
   healthDropProbability: 0.5
   HalfHeart: {fileID: 4831806734205252699, guid: 662d688ed4777ab45b2d0da5a72ea65e,
     type: 3}

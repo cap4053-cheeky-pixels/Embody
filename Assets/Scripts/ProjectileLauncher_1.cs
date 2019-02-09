@@ -11,31 +11,20 @@ public class ProjectileLauncher_1 : MonoBehaviour
 
     private float timer;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Shoot()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
         timer += Time.deltaTime;
         if (timer > interval)
         {
-            if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Z))
-            {
-                GameObject projectileInstance = Instantiate(projectile, transform.position + new Vector3(0, 2, 0), transform.rotation);
+            GameObject projectileInstance = Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
 
-                Rigidbody rigidbody = projectileInstance.GetComponent<Rigidbody>();
+            Rigidbody rigidbody = projectileInstance.GetComponent<Rigidbody>();
 
-                rigidbody.velocity = transform.forward * speed;
+            rigidbody.velocity = transform.forward * speed;
 
-                Destroy(projectileInstance, projectileLifetime);
+            Destroy(projectileInstance, projectileLifetime);
 
-                timer = 0;
-            }
+            timer = 0;
         }
     }
 }

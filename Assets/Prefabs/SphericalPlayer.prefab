@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4025529276289133080}
   - component: {fileID: 4025529276289133083}
   - component: {fileID: 6269973983101303745}
+  - component: {fileID: 587662356618148572}
   m_Layer: 0
   m_Name: SphericalPlayer
   m_TagString: Player
@@ -108,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55b872060617f4459a1e5f4d9f4eb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
 --- !u!54 &4025529276289133081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,6 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70cec0367616494bb52e19eda6047a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 6
+  strength: 2
+  speed: 10
 --- !u!135 &4025529276289133083
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -162,3 +165,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ac85168aec4470f92583ad9785c55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &587662356618148572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025529276289133280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134cc88f64e05ae4eb068eb4b30faa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  projectile: {fileID: 8828681918677538994, guid: b7b62e132f1034644a9f3811d629383b,
+    type: 3}
+  interval: 0.8
+  projectileLifetime: 2

@@ -64,9 +64,8 @@ public class Enemy : Entity
             {
                 ChangeHealth(-1);
                 Destroy(other.gameObject);
+            }
         }
-    }
-
     }
 
     void HealthDrop()
