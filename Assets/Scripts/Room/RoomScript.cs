@@ -97,9 +97,9 @@ public class RoomScript : MonoBehaviour
     /* Called when any other collision object enters this Room. Used to detect when the player
      * enters the room. If there are currently enemies, it will lock all doors.
      */
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider c)
     {
-       if (collision.gameObject.tag == "Player")
+       if (c.gameObject.tag == "Player")
         {
             // Enemies remaining
             if (numEnemies != 0)
