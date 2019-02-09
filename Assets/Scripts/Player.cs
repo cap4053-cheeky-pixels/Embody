@@ -15,7 +15,7 @@ public class Player : Entity
     private IWeapon fireableWeapon;
     private CharacterController cc;
 
-    public void setWeapon(GameObject weapon)
+    public void SetWeapon(GameObject weapon)
     {
         this.weapon = weapon;
         fireableWeapon = this.weapon.GetComponent<IWeapon>();
@@ -24,7 +24,7 @@ public class Player : Entity
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
-        setWeapon(weapon);
+        SetWeapon(weapon);
     }
 
     private void Start()
