@@ -49,5 +49,5 @@ MonoBehaviour:
   interval: 1.5
   projectileLifetime: 10
   damage: 1
-  forwardOffset: 1.5
+  forwardOffset: 0.5
   upwardOffset: 1.5
