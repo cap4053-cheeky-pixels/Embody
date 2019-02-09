@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,6 +394,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &210673163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+    type: 3}
+  m_PrefabInstance: {fileID: 17562004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &370835024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -977,6 +983,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 960937845}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 210673163}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &897692247 stripped
@@ -984,6 +1005,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3452622138150947312, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
     type: 3}
   m_PrefabInstance: {fileID: 897692246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &954946461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1899837990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &960937845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1464061415}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1005264909
 PrefabInstance:
@@ -1328,6 +1361,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 2140754851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &1190121147 stripped
@@ -2181,6 +2224,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 187327570}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[2]
+      value: 
+      objectReference: {fileID: 954946461}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 960937845}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &1550460822 stripped
@@ -2538,6 +2601,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 954946461}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 2140754851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &1858121822 stripped
@@ -2772,6 +2850,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138150947319, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 210673163}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c7532f6e7ab7d4ca7521eb459dc01d, type: 3}
 --- !u!4 &2012954548 stripped
@@ -2779,4 +2867,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3452622138150947312, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
     type: 3}
   m_PrefabInstance: {fileID: 2012954547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2140754851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3172475442716190818, guid: e158565cd2d46564a9999950a941a04b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1119782697}
   m_PrefabAsset: {fileID: 0}
