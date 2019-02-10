@@ -89,6 +89,7 @@ MonoBehaviour:
   healthDropProbability: 0.25
   HalfHeart: {fileID: 4831806734205252699, guid: 662d688ed4777ab45b2d0da5a72ea65e,
     type: 3}
+  showPossession: 1
   movingEnemy: 1
 --- !u!136 &47783448163778470
 CapsuleCollider:
@@ -179,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a290cc7819832544da1493964af9341a, type: 2}
+  - {fileID: 2100000, guid: f897440644e3845d7a5b76c8ebaff1ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -479,11 +480,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 138352395812136841}
     m_Modifications:
-    - target: {fileID: 5413563091945445111, guid: 61f9f1f60aefe2d45b4d25f9cab2263d,
-        type: 3}
-      propertyPath: m_Name
-      value: TripWeapon
-      objectReference: {fileID: 0}
     - target: {fileID: 5413563091945445110, guid: 61f9f1f60aefe2d45b4d25f9cab2263d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,6 +534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413563091945445111, guid: 61f9f1f60aefe2d45b4d25f9cab2263d,
+        type: 3}
+      propertyPath: m_Name
+      value: TripWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 5413563091945445113, guid: 61f9f1f60aefe2d45b4d25f9cab2263d,
         type: 3}
