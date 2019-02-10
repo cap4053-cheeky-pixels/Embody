@@ -29,6 +29,7 @@ public class Posession : MonoBehaviour
     {
         if(other.gameObject.tag == "DeadDude" && possessInput)
         {
+            other.gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", 0);
             possessInput = false;
             Enemy deadEnemy = other.gameObject.GetComponent<Enemy>();
             player.MaxHealth = deadEnemy.MaxHealth;
@@ -55,6 +56,7 @@ public class Posession : MonoBehaviour
             Destroy(playerWeapon);
             // Remove the enemy
             Destroy(other.gameObject);
+
         }
     }
 }

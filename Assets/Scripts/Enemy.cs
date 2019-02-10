@@ -18,7 +18,9 @@ public class Enemy : Entity
     public float healthDropProbability;
     public GameObject HalfHeart;
 
+    public bool showPossession = true;
     private float fireRateTimer = 0;
+    private float possessTimer = 0;
     private IWeapon fireableWeapon;
     private bool movingEnabled;
     public bool movingEnemy = true;
@@ -44,17 +46,42 @@ public class Enemy : Entity
     void Update()
     {
         fireRateTimer += Time.deltaTime;
+        possessTimer += Time.deltaTime;
 
         if(Health != 0 && movingEnemy && movingEnabled && target != null)
         {
             Move();
         }
+        if(Health <= 0){
+            
+            possessTimer += Time.deltaTime;
 
+            if (possessTimer > 2)
+            {
+                ToggleOutline();
+                possessTimer = 0;
+            }
+            
+        }
         if (fireRateTimer > attemptFirerate && movingEnabled && fireableWeapon != null)
         {
             fireableWeapon.Fire("Enemy-Fireball");
             fireRateTimer = 0;
         }
+    }
+
+    private void ToggleOutline()
+    {
+        if (showPossession)
+        {
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .4f);
+            showPossession = false;
+        }
+        else {
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", 0);
+            showPossession = true;
+        }
+            
     }
 
     public void SetMovement(bool canMove)
@@ -121,8 +148,8 @@ public class Enemy : Entity
             gameObject.tag = "DeadDude";
             gameObject.GetComponent<Collider>().isTrigger = true;
 
-            //the below line outlines the gameObject, to be used possibly when enemy is eligible for Possession.
-            //gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Outline", 1);
+            //the below line outlines the gameObject when enemy is eligible for Possession.
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .4f);
 
             deathEvent?.Invoke(gameObject);
             HealthDrop();
