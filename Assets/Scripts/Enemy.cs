@@ -12,6 +12,7 @@ public class Enemy : Entity
 
     public GameObject weapon;
     public float attemptFirerate = 0.5f;
+
     public int maxHealth;
     public int strength; // Not used
     public int speed;
@@ -21,6 +22,7 @@ public class Enemy : Entity
     public bool showPossession = true;
     private float fireRateTimer = 0;
     private float possessTimer = 0;
+    private float rotateTimer = 0;
     private IWeapon fireableWeapon;
     private bool movingEnabled;
     public bool movingEnemy = true;
@@ -47,6 +49,7 @@ public class Enemy : Entity
     {
         fireRateTimer += Time.deltaTime;
         possessTimer += Time.deltaTime;
+        rotateTimer += Time.deltaTime;
 
         if(Health != 0 && movingEnemy && movingEnabled && target != null)
         {
@@ -65,16 +68,17 @@ public class Enemy : Entity
         }
         if (fireRateTimer > attemptFirerate && movingEnabled && fireableWeapon != null)
         {
-            if(!movingEnemy)
-            {
-                //face the player
-                Vector3 tVector = target.position - transform.position;
-                tVector.y = 0;
-                transform.rotation = Quaternion.LookRotation(tVector);
-            }
-
             fireableWeapon.Fire("Enemy-Fireball");
             fireRateTimer = 0;
+        }
+
+        if (!movingEnemy && rotateTimer > 3 && Health >0)
+        {
+            //face the player
+            Vector3 tVector = target.position - transform.position;
+            tVector.y = 0;
+            transform.rotation = Quaternion.LookRotation(tVector);
+            rotateTimer = 0;
         }
     }
 
