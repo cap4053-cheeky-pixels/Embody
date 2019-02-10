@@ -52,6 +52,14 @@ public class Enemy : Entity
 
         if (fireRateTimer > attemptFirerate && movingEnabled && fireableWeapon != null)
         {
+            if(!movingEnemy)
+            {
+                //face the player
+                Vector3 tVector = target.position - transform.position;
+                tVector.y = 0;
+                transform.rotation = Quaternion.LookRotation(tVector);
+            }
+
             fireableWeapon.Fire("Enemy-Fireball");
             fireRateTimer = 0;
         }
