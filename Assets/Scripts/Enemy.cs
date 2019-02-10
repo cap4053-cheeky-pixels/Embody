@@ -135,7 +135,7 @@ public class Enemy : Entity
         {
             var randX = Random.Range(-600, 600);
             var randZ = Random.Range(-600, 600);
-            var heart = Instantiate(HalfHeart, transform.position + new Vector3(0, 2, 0), HalfHeart.transform.rotation);
+            var heart = Instantiate(HalfHeart, transform.position + new Vector3(0, 2.5f, 0), HalfHeart.transform.rotation);
 
             var heartRb = heart.GetComponent<Rigidbody>();
 
