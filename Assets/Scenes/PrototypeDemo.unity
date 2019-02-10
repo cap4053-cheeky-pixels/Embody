@@ -750,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 138352395812136843, guid: bc2fd5bb56d63534c9e3f04c1d75e2b9,
     type: 3}
-  maxHealth: 2
+  maxHealth: 4
   speed: 1
   fireRate: 0.5
   yRotation: 0
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 138352395812136843, guid: bc2fd5bb56d63534c9e3f04c1d75e2b9,
     type: 3}
-  maxHealth: 2
+  maxHealth: 4
   speed: 1
   fireRate: 0.5
   yRotation: 0
@@ -3207,6 +3207,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 138352395812136843, guid: bc2fd5bb56d63534c9e3f04c1d75e2b9,
         type: 3}
+    - target: {fileID: 3452622137903342520, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3452622138062608788, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
         type: 3}
       propertyPath: enemyPrefab
@@ -3217,6 +3222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireRate
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452622138062608788, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
+        type: 3}
+      propertyPath: maxHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3452622137903342521, guid: 78c7532f6e7ab7d4ca7521eb459dc01d,
         type: 3}
