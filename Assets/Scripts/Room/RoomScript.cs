@@ -87,7 +87,6 @@ public class RoomScript : MonoBehaviour
 
             if (enemy != null)
             {
-                Debug.Log("Enabling an enemy's movement!");
                 // The enemy's update loop condition will then be true
                 enemy.SetMovement(true);
             }

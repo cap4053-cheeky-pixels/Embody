@@ -46,7 +46,7 @@ MonoBehaviour:
   projectile: {fileID: 3679045101436823485, guid: 6d190f65b45c1bd429606e0c905bc3d0,
     type: 3}
   speed: 15
-  interval: 0.7
+  interval: 0.45
   projectileLifetime: 10
   damage: 1
   forwardOffset: 0.5

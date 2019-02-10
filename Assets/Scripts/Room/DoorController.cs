@@ -11,7 +11,7 @@ public class DoorController : MonoBehaviour
     {
         doorOpen = false;
         animator = GetComponent<Animator>();
-        animator.speed = 2.5f;
+        animator.speed = 4f;
     }
 
     /* Opens the Door object this script is associated with */
