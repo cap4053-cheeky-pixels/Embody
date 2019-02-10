@@ -21,20 +21,20 @@ public class Enemy : Entity
     private float fireRateTimer = 0;
     private IWeapon fireableWeapon;
     private bool movingEnabled;
+    public bool movingEnemy = true;
     private CharacterController cc;
 
     private void Awake()
-    {
-        setWeapon(weapon);
-        cc = GetComponent<CharacterController>();
-    }
-    private void Start()
     {
         MaxHealth = this.maxHealth;
         Health = MaxHealth;
         Strength = this.strength;
         Speed = this.speed;
-
+        setWeapon(weapon);
+        cc = GetComponent<CharacterController>();
+    }
+    private void Start()
+    {
         //locate Player, let this be the target
         target = GameObject.FindGameObjectWithTag("Player").transform;
         movingEnabled = false;
@@ -45,7 +45,7 @@ public class Enemy : Entity
     {
         fireRateTimer += Time.deltaTime;
 
-        if(Health != 0 && movingEnabled && target != null)
+        if(Health != 0 && movingEnemy && movingEnabled && target != null)
         {
             Move();
         }

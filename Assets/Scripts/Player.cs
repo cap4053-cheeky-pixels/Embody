@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -15,6 +16,13 @@ public class Player : Entity
     private IWeapon fireableWeapon;
     private CharacterController cc;
 
+    private bool actionsEnabled;
+
+    public void SetEnabled(bool enabled)
+    {
+        actionsEnabled = enabled;
+    }
+
     public void SetWeapon(GameObject weapon)
     {
         this.weapon = weapon;
@@ -24,6 +32,7 @@ public class Player : Entity
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
+        actionsEnabled = true;
         SetWeapon(weapon);
     }
 
@@ -39,33 +48,36 @@ public class Player : Entity
 
     private void Update()
     {
-        float Horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
+        if(actionsEnabled)
+        {
+            float Horizontal = Input.GetAxis("Horizontal");
+            float Vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(Horizontal, 0.0f, Vertical);
+            Vector3 move = new Vector3(Horizontal, 0.0f, Vertical);
 
-        // Move the player
-        cc.SimpleMove(move * speed);
+            // Move the player
+            cc.SimpleMove(move * speed);
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.forward = new Vector3(-1, 0, 0);
-            FireWeapon();
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.forward = new Vector3(1, 0, 0);
-            FireWeapon();
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.forward = new Vector3(0, 0, 1);
-            FireWeapon();
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.forward = new Vector3(0, 0, -1);
-            FireWeapon();
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.forward = new Vector3(-1, 0, 0);
+                FireWeapon();
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.forward = new Vector3(1, 0, 0);
+                FireWeapon();
+            }
+            else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.forward = new Vector3(0, 0, 1);
+                FireWeapon();
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.forward = new Vector3(0, 0, -1);
+                FireWeapon();
+            }
         }
     }
 
@@ -101,7 +113,7 @@ public class Player : Entity
         {
             // TODO give feedback to signal game over before deleting the player
             // TODO DONT DESTROY THE PLAYER! THIS THROWS EXCEPTIONS
-            Destroy(gameObject);
+            SceneManager.LoadScene(0);
         }
     }
 
