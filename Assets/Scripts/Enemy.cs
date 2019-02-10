@@ -21,6 +21,7 @@ public class Enemy : Entity
     private float fireRateTimer = 0;
     private IWeapon fireableWeapon;
     private bool movingEnabled;
+    public bool movingEnemy = true;
     private CharacterController cc;
 
     private void Awake()
@@ -45,7 +46,7 @@ public class Enemy : Entity
     {
         fireRateTimer += Time.deltaTime;
 
-        if(Health != 0 && movingEnabled && target != null)
+        if(Health != 0 && movingEnemy && movingEnabled && target != null)
         {
             Move();
         }

@@ -21,7 +21,7 @@ public class SpawnScript : MonoBehaviour
             if (enemyToSpawn != null)
             {
                 enemyToSpawn.tag = "Enemy";
-                GameObject spawnedEnemy = Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity);
+                GameObject spawnedEnemy = Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.Euler(0, 180, 0));
                 spawned.Add(spawnedEnemy);
             }
         }
