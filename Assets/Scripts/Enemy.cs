@@ -26,16 +26,15 @@ public class Enemy : Entity
 
     private void Awake()
     {
+        MaxHealth = this.maxHealth;
+        Health = MaxHealth;
+        Strength = this.strength;
+        Speed = this.speed;
         setWeapon(weapon);
         cc = GetComponent<CharacterController>();
     }
     private void Start()
     {
-        MaxHealth = this.maxHealth;
-        Health = MaxHealth;
-        Strength = this.strength;
-        Speed = this.speed;
-
         //locate Player, let this be the target
         target = GameObject.FindGameObjectWithTag("Player").transform;
         movingEnabled = false;
