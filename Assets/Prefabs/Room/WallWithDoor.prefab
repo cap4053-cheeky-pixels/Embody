@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5112543974746717780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 2, z: 4}
-  m_LocalScale: {x: 0.5, y: 4, z: 8}
+  m_LocalPosition: {x: 0.25, y: 2, z: 1.5}
+  m_LocalScale: {x: 0.5, y: 4, z: 13}
   m_Children: []
   m_Father: {fileID: 5112543974233715998}
   m_RootOrder: 0
@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 5112543975245512761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.25, y: 5, z: 10}
-  m_LocalScale: {x: 0.5, y: 2, z: 20}
+  m_LocalScale: {x: 0.5, y: 2, z: 30}
   m_Children: []
   m_Father: {fileID: 5112543974233715998}
   m_RootOrder: 1
@@ -229,8 +229,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8920284515087930242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 2, z: 16}
-  m_LocalScale: {x: 0.5, y: 4, z: 8}
+  m_LocalPosition: {x: 0.25, y: 2, z: 18.5}
+  m_LocalScale: {x: 0.5, y: 4, z: 13}
   m_Children: []
   m_Father: {fileID: 5112543974233715998}
   m_RootOrder: 2
@@ -300,16 +300,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5112543974233715998}
     m_Modifications:
-    - target: {fileID: 5173297695321797338, guid: 61042190ebf81934698d5f1f43767102,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 5173297695321797338, guid: 61042190ebf81934698d5f1f43767102,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
     - target: {fileID: 5173297695321797337, guid: 61042190ebf81934698d5f1f43767102,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -364,6 +354,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173297695321797338, guid: 61042190ebf81934698d5f1f43767102,
+        type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173297695321797338, guid: 61042190ebf81934698d5f1f43767102,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61042190ebf81934698d5f1f43767102, type: 3}
