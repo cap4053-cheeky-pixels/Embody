@@ -18,7 +18,7 @@ public class Enemy : Entity
     public float healthDropProbability;
     public GameObject HalfHeart;
 
-    private bool showPossession = true;
+    public bool showPossession = true;
     private float fireRateTimer = 0;
     private float possessTimer = 0;
     private IWeapon fireableWeapon;
@@ -56,7 +56,7 @@ public class Enemy : Entity
             
             possessTimer += Time.deltaTime;
 
-            if (possessTimer > 1)
+            if (possessTimer > 2)
             {
                 ToggleOutline();
                 possessTimer = 0;
@@ -74,7 +74,7 @@ public class Enemy : Entity
     {
         if (showPossession)
         {
-            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .5f);
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .4f);
             showPossession = false;
         }
         else {
@@ -149,7 +149,7 @@ public class Enemy : Entity
             gameObject.GetComponent<Collider>().isTrigger = true;
 
             //the below line outlines the gameObject when enemy is eligible for Possession.
-            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .5f);
+            gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.SetFloat("_Outline", .4f);
 
             deathEvent?.Invoke(gameObject);
             HealthDrop();
