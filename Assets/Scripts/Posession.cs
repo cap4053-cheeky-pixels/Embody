@@ -18,7 +18,7 @@ public class Posession : MonoBehaviour
     {
         // Rinky dink shit to keep the trigger method from being called twice...
         timer += Time.deltaTime;
-        if (Input.GetKeyDown("space") && timer > cooldown)
+        if (Input.GetAxis("Posess") != 0 && timer > cooldown)
         {
             possessInput = true;
             timer = 0;
