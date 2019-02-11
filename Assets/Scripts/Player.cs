@@ -58,22 +58,22 @@ public class Player : Entity
             // Move the player
             cc.SimpleMove(move * speed);
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetAxis("FireLeft") != 0)
             {
                 transform.forward = new Vector3(-1, 0, 0);
                 FireWeapon();
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetAxis("FireRight") != 0)
             {
                 transform.forward = new Vector3(1, 0, 0);
                 FireWeapon();
             }
-            else if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetAxis("FireUp") != 0)
             {
                 transform.forward = new Vector3(0, 0, 1);
                 FireWeapon();
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetAxis("FireDown") != 0)
             {
                 transform.forward = new Vector3(0, 0, -1);
                 FireWeapon();
