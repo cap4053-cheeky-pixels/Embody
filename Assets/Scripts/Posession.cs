@@ -18,10 +18,15 @@ public class Posession : MonoBehaviour
     {
         // Rinky dink shit to keep the trigger method from being called twice...
         timer += Time.deltaTime;
-        if (Input.GetAxis("Posess") != 0 && timer > cooldown)
+        if (timer > cooldown)
         {
-            possessInput = true;
-            timer = 0;
+            // Reset the possess input
+            possessInput = false;
+            if (Input.GetAxis("Posess") != 0)
+            {
+                possessInput = true;
+                timer = 0;
+            }
         }
     }
 
